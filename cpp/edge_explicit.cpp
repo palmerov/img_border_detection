@@ -1,8 +1,3 @@
-/**
- * Edge detection: gradient magnitude G = sqrt(Gx^2 + Gy^2) with Sobel.
- * Vectorization: EXPLICIT — Intel AVX2 intrinsics (4 doubles per vector).
- */
-
 #include "common.h"
 #include <iostream>
 #include <chrono>
@@ -31,67 +26,69 @@ void edge_detect_explicit(const Image& in, Image& out) {
             __m256d sy = _mm256_setzero_pd();
             const int i0 = (i - 1) * W, i1 = i * W, i2 = (i + 1) * W;
 
+            // --- X direction ---
             __m256d k0 = _mm256_set1_pd(SOBEL_X[0]);
             __m256d k1 = _mm256_set1_pd(SOBEL_X[1]);
             __m256d k2 = _mm256_set1_pd(SOBEL_X[2]);
             __m256d a = _mm256_set_pd(src[i0 + j + 3], src[i0 + j + 2], src[i0 + j + 1], src[i0 + j]);
             __m256d b = _mm256_set_pd(src[i0 + j + 4], src[i0 + j + 3], src[i0 + j + 2], src[i0 + j + 1]);
             __m256d c = _mm256_set_pd(src[i0 + j + 5], src[i0 + j + 4], src[i0 + j + 3], src[i0 + j + 2]);
-            sx = _mm256_fmadd_pd(k0, a, sx);
-            sx = _mm256_fmadd_pd(k1, b, sx);
-            sx = _mm256_fmadd_pd(k2, c, sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k0, a), sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k1, b), sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k2, c), sx);
 
             k0 = _mm256_set1_pd(SOBEL_X[3]); k1 = _mm256_set1_pd(SOBEL_X[4]); k2 = _mm256_set1_pd(SOBEL_X[5]);
             a = _mm256_set_pd(src[i1 + j + 3], src[i1 + j + 2], src[i1 + j + 1], src[i1 + j]);
             b = _mm256_set_pd(src[i1 + j + 4], src[i1 + j + 3], src[i1 + j + 2], src[i1 + j + 1]);
             c = _mm256_set_pd(src[i1 + j + 5], src[i1 + j + 4], src[i1 + j + 3], src[i1 + j + 2]);
-            sx = _mm256_fmadd_pd(k0, a, sx);
-            sx = _mm256_fmadd_pd(k1, b, sx);
-            sx = _mm256_fmadd_pd(k2, c, sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k0, a), sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k1, b), sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k2, c), sx);
 
             k0 = _mm256_set1_pd(SOBEL_X[6]); k1 = _mm256_set1_pd(SOBEL_X[7]); k2 = _mm256_set1_pd(SOBEL_X[8]);
             a = _mm256_set_pd(src[i2 + j + 3], src[i2 + j + 2], src[i2 + j + 1], src[i2 + j]);
             b = _mm256_set_pd(src[i2 + j + 4], src[i2 + j + 3], src[i2 + j + 2], src[i2 + j + 1]);
             c = _mm256_set_pd(src[i2 + j + 5], src[i2 + j + 4], src[i2 + j + 3], src[i2 + j + 2]);
-            sx = _mm256_fmadd_pd(k0, a, sx);
-            sx = _mm256_fmadd_pd(k1, b, sx);
-            sx = _mm256_fmadd_pd(k2, c, sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k0, a), sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k1, b), sx);
+            sx = _mm256_add_pd(_mm256_mul_pd(k2, c), sx);
 
+            // --- Y direction ---
             k0 = _mm256_set1_pd(SOBEL_Y[0]); k1 = _mm256_set1_pd(SOBEL_Y[1]); k2 = _mm256_set1_pd(SOBEL_Y[2]);
             a = _mm256_set_pd(src[i0 + j + 3], src[i0 + j + 2], src[i0 + j + 1], src[i0 + j]);
             b = _mm256_set_pd(src[i0 + j + 4], src[i0 + j + 3], src[i0 + j + 2], src[i0 + j + 1]);
             c = _mm256_set_pd(src[i0 + j + 5], src[i0 + j + 4], src[i0 + j + 3], src[i0 + j + 2]);
-            sy = _mm256_fmadd_pd(k0, a, sy);
-            sy = _mm256_fmadd_pd(k1, b, sy);
-            sy = _mm256_fmadd_pd(k2, c, sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k0, a), sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k1, b), sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k2, c), sy);
 
             k0 = _mm256_set1_pd(SOBEL_Y[3]); k1 = _mm256_set1_pd(SOBEL_Y[4]); k2 = _mm256_set1_pd(SOBEL_Y[5]);
             a = _mm256_set_pd(src[i1 + j + 3], src[i1 + j + 2], src[i1 + j + 1], src[i1 + j]);
             b = _mm256_set_pd(src[i1 + j + 4], src[i1 + j + 3], src[i1 + j + 2], src[i1 + j + 1]);
             c = _mm256_set_pd(src[i1 + j + 5], src[i1 + j + 4], src[i1 + j + 3], src[i1 + j + 2]);
-            sy = _mm256_fmadd_pd(k0, a, sy);
-            sy = _mm256_fmadd_pd(k1, b, sy);
-            sy = _mm256_fmadd_pd(k2, c, sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k0, a), sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k1, b), sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k2, c), sy);
 
             k0 = _mm256_set1_pd(SOBEL_Y[6]); k1 = _mm256_set1_pd(SOBEL_Y[7]); k2 = _mm256_set1_pd(SOBEL_Y[8]);
             a = _mm256_set_pd(src[i2 + j + 3], src[i2 + j + 2], src[i2 + j + 1], src[i2 + j]);
             b = _mm256_set_pd(src[i2 + j + 4], src[i2 + j + 3], src[i2 + j + 2], src[i2 + j + 1]);
             c = _mm256_set_pd(src[i2 + j + 5], src[i2 + j + 4], src[i2 + j + 3], src[i2 + j + 2]);
-            sy = _mm256_fmadd_pd(k0, a, sy);
-            sy = _mm256_fmadd_pd(k1, b, sy);
-            sy = _mm256_fmadd_pd(k2, c, sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k0, a), sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k1, b), sy);
+            sy = _mm256_add_pd(_mm256_mul_pd(k2, c), sy);
 
             _mm256_storeu_pd(&gx_ptr[i * W + j], sx);
             _mm256_storeu_pd(&gy_ptr[i * W + j], sy);
         }
+
         for (; j < W - 1; ++j) {
             double sx = 0, sy = 0;
-            sx += in.at(i-1, j-1) * SOBEL_X[0] + in.at(i-1, j) * SOBEL_X[1] + in.at(i-1, j+1) * SOBEL_X[2];
-            sx += in.at(i,   j-1) * SOBEL_X[3] + in.at(i,   j) * SOBEL_X[4] + in.at(i,   j+1) * SOBEL_X[5];
-            sx += in.at(i+1, j-1) * SOBEL_X[6] + in.at(i+1, j) * SOBEL_X[7] + in.at(i+1, j+1) * SOBEL_X[8];
-            sy += in.at(i-1, j-1) * SOBEL_Y[0] + in.at(i-1, j) * SOBEL_Y[1] + in.at(i-1, j+1) * SOBEL_Y[2];
-            sy += in.at(i,   j-1) * SOBEL_Y[3] + in.at(i,   j) * SOBEL_Y[4] + in.at(i,   j+1) * SOBEL_Y[5];
-            sy += in.at(i+1, j-1) * SOBEL_Y[6] + in.at(i+1, j) * SOBEL_Y[7] + in.at(i+1, j+1) * SOBEL_Y[8];
+            for (int di = -1; di <= 1; ++di)
+                for (int dj = -1; dj <= 1; ++dj) {
+                    sx += in.at(i+di, j+dj) * SOBEL_X[(di+1)*3 + (dj+1)];
+                    sy += in.at(i+di, j+dj) * SOBEL_Y[(di+1)*3 + (dj+1)];
+                }
             gx[i * W + j] = sx;
             gy[i * W + j] = sy;
         }
@@ -109,25 +106,8 @@ void edge_detect_explicit(const Image& in, Image& out) {
         _mm256_storeu_pd(&out.data[i], mag);
     }
     for (; i < N; ++i) {
-        out.data[i] = std::sqrt(gx[i] * gx[i] + gy[i] * gy[i]);
+        out.data[i] = std::sqrt(gx[i]*gx[i] + gy[i]*gy[i]);
     }
 }
 
 }  // namespace edge
-
-int main(int argc, char** argv) {
-    if (argc < 3) {
-        std::cerr << "Usage: " << (argv[0] ? argv[0] : "edge_explicit") << " <input.pgm> <output.pgm>\n";
-        return 1;
-    }
-    std::string in_path = argv[1], out_path = argv[2];
-    edge::Image in = edge::load_pgm(in_path);
-    edge::Image out;
-    auto t0 = std::chrono::high_resolution_clock::now();
-    edge::edge_detect_explicit(in, out);
-    auto t1 = std::chrono::high_resolution_clock::now();
-    edge::save_pgm(out_path, out);
-    auto us = std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count();
-    std::cout << "Explicit (AVX2): " << us << " us\n";
-    return 0;
-}
