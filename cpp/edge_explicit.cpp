@@ -1,6 +1,7 @@
 #include "common.h"
 #include <iostream>
 #include <chrono>
+#include <string>
 #include <immintrin.h>
 
 namespace edge {
@@ -70,7 +71,7 @@ void edge_detect_explicit(const Image& in, Image& out) {
             sy = _mm256_add_pd(_mm256_mul_pd(k1, b), sy);
             sy = _mm256_add_pd(_mm256_mul_pd(k2, c), sy);
 
-            k0 = _mm256_set1_pd(SOBEL_Y[6]); k1 = _mm256_set1_pd(SOBEL_Y[7]); k2 = _mm256_set1_pd(SOBEL_Y[8]);
+k0 = _mm256_set1_pd(SOBEL_Y[6]); k1 = _mm256_set1_pd(SOBEL_Y[7]); k2 = _mm256_set1_pd(SOBEL_Y[8]);
             a = _mm256_set_pd(src[i2 + j + 3], src[i2 + j + 2], src[i2 + j + 1], src[i2 + j]);
             b = _mm256_set_pd(src[i2 + j + 4], src[i2 + j + 3], src[i2 + j + 2], src[i2 + j + 1]);
             c = _mm256_set_pd(src[i2 + j + 5], src[i2 + j + 4], src[i2 + j + 3], src[i2 + j + 2]);
@@ -111,3 +112,20 @@ void edge_detect_explicit(const Image& in, Image& out) {
 }
 
 }  // namespace edge
+
+int main(int argc, char** argv) {
+    if (argc < 3) {
+        std::cerr << "Usage: " << (argv[0] ? argv[0] : "edge_explicit") << " <input.pgm> <output.pgm>\n";
+        return 1;
+    }
+    std::string in_path = argv[1], out_path = argv[2];
+    edge::Image in = edge::load_pgm(in_path);
+    edge::Image out;
+    auto t0 = std::chrono::high_resolution_clock::now();
+    edge::edge_detect_explicit(in, out);
+    auto t1 = std::chrono::high_resolution_clock::now();
+    edge::save_pgm(out_path, out);
+    auto us = std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count();
+    std::cout << "Explicit (AVX): " << us << " us\n";
+    return 0;
+}

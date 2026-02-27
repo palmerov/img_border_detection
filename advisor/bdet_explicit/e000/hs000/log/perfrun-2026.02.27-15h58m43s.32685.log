@@ -1,0 +1,96 @@
+1 [138807632820160] INFO perfrun.launcher <> - Launcher main begin
+4 [138807632820160] INFO perfrun.launcher <> - MessageCatalogInit finished
+4 [138807632820160] INFO perfrun.launcher <> - Launcher instance created
+4 [138807632820160] INFO perfrun.launcher <> - argc = 7; cmdline = /opt/intel/oneapi/advisor/2025.4/bin64/advixe-runss --ui-output-format xml --ui-output-fd 182 --option-file /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/config/runss.options 
+225 [138807632820160] INFO perfrun.launcher <> - create msngr2::ICliToolContext
+230 [138807632820160] INFO perfrun.launcher <> - create file finder object
+230 [138807632820160] INFO perfrun.launcher <> - create a result directory: pattern = /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000 pid = 4294967295
+246 [138807632820160] INFO perfrun.sdk <> - checked that the directory /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000 is a local directory
+246 [138807632820160] INFO perfrun.sdk <> - the directory /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000 is a local directory with FS type ID 61267
+246 [138807632820160] INFO perfrun.launcher <> - create data directory = /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0
+246 [138807632820160] INFO perfrun.launcher <> - Creating the master collection flag
+301 [138807632820160] INFO perfrun.launcher <> - Done creating the master collection flag
+302 [138807470974656] INFO perfrun.launcher <> - plugin [remoteplug] was disabled because it doesn't support the given collection type.
+302 [138807470974656] INFO perfrun.sdk <> - Allocating TMU :/home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0/systemcollector-32685-danie-BUAP.sc
+302 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+302 [138807470974656] INFO perfrun.launcher <> - plugin [gpu] was disabled because it doesn't support the given collection type.
+302 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+302 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+302 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+302 [138807470974656] INFO perfrun.mrte <> - system-wide mode is 0
+302 [138807470974656] INFO perfrun.mrte <> - Getting  mrte profiling environment ...
+331 [138807470974656] INFO perfrun.mrte <> - INTEL_MRTE_DATA_DIR=/home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0
+331 [138807470974656] INFO perfrun.mrte <> - INTEL_MRTE_HOST_NAME=danie-BUAP
+332 [138807470974656] INFO perfrun.mrte <> - JAVA_TOOL_OPTIONS=-agentlib:advixe_samplingmrte_javaprof_1.0 -Dsun.boot.library.path=/opt/intel/oneapi/advisor/2025.4/lib32/runtime:/opt/intel/oneapi/advisor/2025.4/lib64/runtime
+332 [138807470974656] INFO perfrun.mrte <> - LD_LIBRARY_PATH=/opt/intel/oneapi/advisor/2025.4/lib32/runtime:/opt/intel/oneapi/advisor/2025.4/lib64/runtime:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/::/opt/intel/oneapi/2025.3/lib:/opt/intel/oneapi/compiler/latest/linux/lib/intel64_lin:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib/:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/
+332 [138807470974656] INFO perfrun.mrte <> - Data directory: /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0
+333 [138807470974656] INFO perfrun.mrte <> - Mrte plugin is initialized
+333 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+333 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+333 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+333 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+334 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+334 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+334 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+334 [138807470974656] INFO perfrun.tpss <> - initialize tpss controller
+335 [138807470974656] INFO perfrun.tpss <> - configure collection mode: value = cpu:stack
+338 [138807470974656] INFO perfrun.tpss <> - default obj-size-min=1024
+338 [138807470974656] INFO perfrun.tpss <> - default hash-table-size=0
+338 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+338 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807470974656] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+339 [138807632820160] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /opt/intel/oneapi/advisor/2025.4/lib32/runtime:/opt/intel/oneapi/advisor/2025.4/lib64/runtime:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/::/opt/intel/oneapi/2025.3/lib:/opt/intel/oneapi/compiler/latest/linux/lib/intel64_lin:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib/:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/
+342 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY32 = /opt/intel/oneapi/advisor/2025.4/lib32/runtime/libittnotify_collector.so
+342 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY64 = /opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so
+342 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_ITTNOTIFY_GROUPS = 
+342 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER32 = /opt/intel/oneapi/advisor/2025.4/lib32/runtime/libittnotify_collector.so
+343 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER64 = /opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so
+343 [138807632820160] INFO perfrun.launcher <> - set environment variable: CCL_ITT_LEVEL = 1
+343 [138807632820160] INFO perfrun.launcher <> - set environment variable: ENABLE_JITPROFILING = 1
+343 [138807632820160] INFO perfrun.launcher <> - set environment variable: CL_CONFIG_USE_VTUNE = True
+343 [138807632820160] INFO perfrun.launcher <> - set environment variable: KMP_FORKJOIN_FRAMES = 0
+344 [138807632820160] INFO perfrun.launcher <> - set environment variable: KMP_FORKJOIN_FRAMES_MODE = 0
+344 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_DATA_DIR = /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0
+344 [138807632820160] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_HOST_NAME = danie-BUAP
+345 [138807632820160] INFO perfrun.launcher <> - set environment variable: JAVA_TOOL_OPTIONS = -agentlib:advixe_samplingmrte_javaprof_1.0 -Dsun.boot.library.path=/opt/intel/oneapi/advisor/2025.4/lib32/runtime:/opt/intel/oneapi/advisor/2025.4/lib64/runtime
+345 [138807632820160] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /opt/intel/oneapi/advisor/2025.4/lib32/runtime:/opt/intel/oneapi/advisor/2025.4/lib64/runtime:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/::/opt/intel/oneapi/2025.3/lib:/opt/intel/oneapi/compiler/latest/linux/lib/intel64_lin:/opt/intel/oneapi/tcm/1.4/lib:/opt/intel/oneapi/umf/1.0/lib:/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.17/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.17/lib:/opt/intel/oneapi/mkl/2025.3/lib:/opt/intel/oneapi/ishmem/1.5/lib/:/opt/intel/oneapi/ippcp/2025.3/lib/:/opt/intel/oneapi/ipp/2022.3/lib:/opt/intel/oneapi/dnnl/2025.3/lib:/opt/intel/oneapi/debugger/2025.3/opt/debugger/lib:/opt/intel/oneapi/dal/2025.10/lib:/opt/intel/oneapi/compiler/2025.3/opt/compiler/lib:/opt/intel/oneapi/compiler/2025.3/lib:/opt/intel/oneapi/ccl/2021.17/lib/
+345 [138807632820160] INFO perfrun.launcher <> - RpcServer: run RPC server to handle requests
+347 [138807632820160] INFO perfrun.launcher <> - Launcher: command line to start before modification = /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit /home/danie/Descargas/proj/img_border_detection/img/input.pgm /home/danie/Descargas/proj/img_border_detection/img/output_explicit.pgm
+347 [138807632820160] INFO perfrun.launcher <> - Launcher: command line to start after modification = /opt/intel/oneapi/advisor/2025.4/bin64/pin -error_file /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0/pinerr.tpsslog -detach_reattach -follow_execv -tool_load_option deepbind -t64 /opt/intel/oneapi/advisor/2025.4/lib64/libtpsstool.so -t /opt/intel/oneapi/advisor/2025.4/lib32/libtpsstool.so -server_name tpss_ipc.32685 -prd_dir /opt/intel/oneapi/advisor/2025.4 -- /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit /home/danie/Descargas/proj/img_border_detection/img/input.pgm /home/danie/Descargas/proj/img_border_detection/img/output_explicit.pgm
+348 [138807632820160] INFO perfrun.launcher <> - ProcessCreator object was created
+349 [138807632820160] INFO perfrun.launcher <> - Launcher: the process was started in suspend mode
+353 [138807470974656] WARN perfrun.system <> - Folder "/var/run/libvirt/qemu/"doesn't exist, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:804
+354 [138807470974656] WARN perfrun.sdk <> - Failed to find xl binary on any of the system paths: /bin, /sbin, /usr/bin, /usr/sbin., at file: vcs/perfrun1/sdk/src/utils.cpp:205
+354 [138807470974656] WARN perfrun.system <> - Only 2 usec accuracy achieved for reference point, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:324
+369 [138807470974656] INFO perfrun.vdso <> - Helper runtool '/opt/intel/oneapi/advisor/2025.4/bin32/advixe-runss -dump-vdso -r /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000 --tmp-dir /tmp/advixe-tmp-root' returned 1
+676 [138807470974656] INFO perfrun.vdso <> - Helper runtool '/opt/intel/oneapi/advisor/2025.4/bin64/advixe-runss -dump-vdso -r /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000 --tmp-dir /tmp/advixe-tmp-root' returned 0
+677 [138807470974656] INFO perfrun.itt <> - start itt controller for pid #32699
+677 [138807470974656] INFO perfrun.tpss <> - start tpss controller for pid #32699
+731 [138807632820160] INFO perfrun.launcher <> - Launcher: all plugins were started
+732 [138807632820160] INFO perfrun.launcher <> - DirectoryMonitor object was created
+732 [138807632820160] INFO perfrun.launcher <> - DirectoryMonitor: a callback was added
+732 [138807632820160] INFO perfrun.launcher <> - DirectoryMonitor was started with pingTime = 1000
+732 [138807632820160] INFO perfrun.launcher <> - DeadlineTimer is going to be constructed
+732 [138807632820160] INFO perfrun.launcher <> - DeadlineTimer: a callback was added
+771 [138807632820160] INFO perfrun.launcher <> - Launcher: resume the profiled application and  wait its termination or stop command
+1528 [138807632820160] INFO perfrun.launcher <> - Launcher: the profiled application was terminated  with exit code = 0
+1531 [138807470974656] WARN perfrun.system <> - Only 2 usec accuracy achieved for reference point, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:324
+1551 [138807470974656] INFO perfrun.itt <> - detach itt controller
+1551 [138807470974656] INFO perfrun.itt <> - detach itt controller done
+1551 [138807470974656] INFO perfrun.tpss <> - stop tpss controller
+1553 [138807470974656] INFO perfrun.sdk <> - De-allocating TMU: /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0/systemcollector-32685-danie-BUAP.sc
+1554 [138807470974656] INFO perfrun.system <> - closed the system trace file: /home/danie/Descargas/proj/img_border_detection/advisor/bdet_explicit/e000/hs000/data.0/systemcollector-32685-danie-BUAP.sc
+1557 [138807632820160] INFO perfrun.launcher <> - Launcher: all plugins were stopped.
+1557 [138807632820160] INFO perfrun.launcher <> - DeadlineTimer is going to be destroyed
+1558 [138807632820160] INFO perfrun.launcher <> - DeadlineTimer was destroyed
+1558 [138807632820160] INFO perfrun.launcher <> - DirectoryMonitor object was destroyed
+1558 [138807632820160] WARN perfrun.launcher <> - Stop command is ignored because it is received when collection is already stopped, at file: vcs/perfrun1/launcher/src/command_handler.cpp:226
+1559 [138807632820160] INFO perfrun.launcher <> - Application exit code: 0
+1559 [138807632820160] INFO perfrun.launcher <> - Exit code: 0

@@ -1,0 +1,16 @@
+# callstacks file version: 8
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi	projection_roi
+         1	        -1	      9600	    0	      0	                                  _start	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	9600	38	0	1	0	0	0	0	0	0	0	0
+         2	        -1	      9636	    0	      0	                                  _start	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	9600	38	0	1	0	0	0	0	0	0	0	0
+         3	        12	    172682	    1	      1	[Loop at line 347 in __libc_start_main_impl]	/lib/x86_64-linux-gnu/libc.so.6	172651,172784	132,64	0	7	0	0	0	0	0	0	0	0
+         4	         3	    172489	    0	      1	                  __libc_start_call_main	/lib/x86_64-linux-gnu/libc.so.6	172368	164	0	9	0	0	0	0	0	0	0	0
+         5	         9	     14565	    0	      0	 std::operator<<<std::char_traits<char>>	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	14556	12	0	3	0	1	0	0	0	0	0	0
+         6	         5	   1403988	    0	      1	std::__ostream_insert<char, std::char_traits<char>>	/lib/x86_64-linux-gnu/libstdc++.so.6	1403904	1184	0	2	0	0	0	0	0	0	0	0
+         7	         4	     14272	    0	      0	                                    main	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	13792	1395	0	5	0	0	0	0	0	0	0	0
+         8	         7	     14464	    0	      0	                          edge::save_pgm	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	14272,14806,15027	308,158,5	0	6	0	1	0	0	0	0	0	0
+         9	         8	     14556	    1	      0	     [Loop at line 58 in edge::save_pgm]	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	14464	104	14568	4	0	0	0	0	0	0	0	0
+        10	         8	     14565	    1	      0	     [Loop at line 58 in edge::save_pgm]	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	14464	104	14568	4	0	0	0	0	0	0	0	0
+        11	         4	     14565	    0	      0	                                    main	/home/danie/Descargas/proj/img_border_detection/cpp/edge_auto	13792	1395	0	5	0	0	0	0	0	0	0	0
+        12	         2	    172651	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	172544	334	0	8	0	0	0	0	0	0	0	0
+        13	         2	    172682	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	172544	334	0	8	0	0	0	0	0	0	0	0
+        14	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	11	0	0	0	0	0	0	0	0

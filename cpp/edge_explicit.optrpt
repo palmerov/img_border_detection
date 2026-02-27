@@ -18,55 +18,55 @@ LOOP END
 LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
 LOOP END
 
-LOOP BEGIN at edge_explicit.cpp (19, 5)
+LOOP BEGIN at edge_explicit.cpp (20, 5)
     remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
 
-    LOOP BEGIN at edge_explicit.cpp (24, 9)
+    LOOP BEGIN at edge_explicit.cpp (25, 9)
         remark #15344: Loop was not vectorized: vector dependence prevents vectorization
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (33, 39) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (33, 56) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (33, 73) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (33, 90) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (34, 39) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (35, 39) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (41, 31) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (41, 48) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (41, 65) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (81, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (41, 82) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (34, 39) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (34, 56) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (34, 73) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (34, 90) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (35, 39) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (36, 39) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (42, 31) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (42, 48) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (42, 65) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (82, 13) ] and src [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (42, 82) ] 
     LOOP END
 
-    LOOP BEGIN at edge_explicit.cpp (85, 9)
+    LOOP BEGIN at edge_explicit.cpp (86, 9)
         remark #15344: Loop was not vectorized: vector dependence prevents vectorization
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (92, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
-        remark #15346: vector dependence: assumed FLOW dependence between gy_ptr __p __p __p gy [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (89, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (93, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
+        remark #15346: vector dependence: assumed FLOW dependence between gy_ptr __p __p __p gy [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (94, 27) ] and [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (90, 30) ] 
 
-        LOOP BEGIN at edge_explicit.cpp (87, 13)
+        LOOP BEGIN at edge_explicit.cpp (88, 13)
 
-            LOOP BEGIN at edge_explicit.cpp (88, 17)
+            LOOP BEGIN at edge_explicit.cpp (89, 17)
             LOOP END
         LOOP END
     LOOP END
 LOOP END
 
-LOOP BEGIN at edge_explicit.cpp (99, 5)
+LOOP BEGIN at edge_explicit.cpp (100, 5)
     remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
 LOOP END
 
-LOOP BEGIN at edge_explicit.cpp (108, 5)
+LOOP BEGIN at edge_explicit.cpp (109, 5)
 <Multiversioned v1>
     remark #15300: LOOP WAS VECTORIZED
     remark #15305: vectorization support: vector length 2
-    remark #15389: vectorization support: unmasked unaligned unit stride load: gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (109, 33) ] 
-    remark #15389: vectorization support: unmasked unaligned unit stride load: gy_ptr __p __p __p gy [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (109, 47) ] 
-    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (109, 21) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: gx_ptr [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (110, 33) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: gy_ptr __p __p __p gy [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (110, 47) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/danie/Descargas/proj/img_border_detection/cpp/edge_explicit.cpp (110, 21) ] 
     remark #15475: --- begin vector loop cost summary ---
     remark #15476: scalar cost: 38.000000 
     remark #15477: vector cost: 20.625000 
@@ -80,12 +80,12 @@ LOOP BEGIN at edge_explicit.cpp (108, 5)
     remark #15474: --- end vector loop memory reference summary ---
 LOOP END
 
-LOOP BEGIN at edge_explicit.cpp (108, 5)
+LOOP BEGIN at edge_explicit.cpp (109, 5)
 <Multiversioned v1>
 <Remainder loop for vectorization>
 LOOP END
 
-LOOP BEGIN at edge_explicit.cpp (108, 5)
+LOOP BEGIN at edge_explicit.cpp (109, 5)
 <Multiversioned v2>
     remark #15615: Loop was not vectorized: not vectorizable due to data dependence, fall-back loop for multiversioning
 LOOP END
@@ -154,76 +154,232 @@ Begin optimization report for: _mm256_sqrt_pd(double vector[4])
 Begin optimization report for: std::vector<double, std::allocator<double>>::~vector()
 =================================================================
 
+Begin optimization report for: main
+
+LOOP BEGIN at edge_explicit.cpp (127, 5)
+LOOP END
+
+LOOP BEGIN at ./common.h (58, 5)
+LOOP END
+=================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*)
+=================================================================
+
+Begin optimization report for: std::allocator<char>::allocator()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string<std::allocator<char>>(char const*, std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__new_allocator<char>::~__new_allocator()
+=================================================================
+
+Begin optimization report for: edge::load_pgm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+
+LOOP BEGIN at ./common.h (38, 9)
+LOOP END
+
+LOOP BEGIN at ./common.h (44, 9)
+LOOP END
+=================================================================
+
+Begin optimization report for: edge::Image::Image()
+=================================================================
+
+Begin optimization report for: edge::save_pgm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, edge::Image const&)
+
+LOOP BEGIN
+LOOP END
+
+LOOP BEGIN at ./common.h (58, 5)
+LOOP END
+=================================================================
+
+Begin optimization report for: std::enable_if<__is_duration<std::chrono::duration<long, std::ratio<1l, 1000000l>>>::value, std::chrono::duration<long, std::ratio<1l, 1000000l>>>::type std::chrono::duration_cast<std::chrono::duration<long, std::ratio<1l, 1000000l>>, long, std::ratio<1l, 1000000000l>>(std::chrono::duration<long, std::ratio<1l, 1000000000l>> const&)
+=================================================================
+
+Begin optimization report for: std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l>>, std::chrono::duration<long, std::ratio<1l, 1000000000l>>>::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l>>, std::chrono::duration<long, std::ratio<1l, 1000000000l>>>(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l>>> const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l>>> const&)
+=================================================================
+
+Begin optimization report for: std::chrono::duration<long, std::ratio<1l, 1000000l>>::count() const
+=================================================================
+
+Begin optimization report for: std::ostream::operator<<(long)
+=================================================================
+
+Begin optimization report for: edge::Image::~Image()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string()
+=================================================================
+
 Begin optimization report for: std::vector<double, std::allocator<double>>::operator[](unsigned long) const
 =================================================================
 
-Begin optimization report for: void std::_Destroy<double*, double>(double*, double*, std::allocator<double>&)
+Begin optimization report for: std::basic_ifstream<char, std::char_traits<char>>::basic_ifstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, std::_Ios_Openmode)
 =================================================================
 
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator()
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::operator!() const
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> std::operator+<char, std::char_traits<char>, std::allocator<char>>(char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string()
+=================================================================
+
+Begin optimization report for: bool std::operator!=<char, std::char_traits<char>, std::allocator<char>>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, char const*)
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::resize(unsigned long)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: bool std::operator==<char, std::char_traits<char>, std::allocator<char>>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, char const*)
+=================================================================
+
+Begin optimization report for: std::basic_ifstream<char, std::char_traits<char>>::~basic_ifstream()
+=================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::basic_ios()
+=================================================================
+
+Begin optimization report for: std::basic_istream<char, std::char_traits<char>>::basic_istream()
+=================================================================
+
+Begin optimization report for: std::basic_ifstream<char, std::char_traits<char>>::open(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, std::_Ios_Openmode)
+=================================================================
+
+Begin optimization report for: std::basic_filebuf<char, std::char_traits<char>>::~basic_filebuf()
+=================================================================
+
+Begin optimization report for: std::basic_istream<char, std::char_traits<char>>::~basic_istream()
+=================================================================
+
+Begin optimization report for: std::basic_filebuf<char, std::char_traits<char>>::open(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, std::_Ios_Openmode)
+=================================================================
+
+Begin optimization report for: std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+=================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str() const
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data() const
 =================================================================
 
 Begin optimization report for: __clang_call_terminate
 =================================================================
 
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::~_Vector_base()
+Begin optimization report for: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
 =================================================================
 
-Begin optimization report for: void std::_Destroy<double*>(double*, double*)
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::rdstate() const
 =================================================================
 
-Begin optimization report for: void std::_Destroy_aux<true>::__destroy<double*>(double*, double*)
+Begin optimization report for: std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf()
 =================================================================
 
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_deallocate(double*, unsigned long)
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::fail() const
 =================================================================
 
-Begin optimization report for: std::__new_allocator<double>::~__new_allocator()
+Begin optimization report for: std::operator&(std::_Ios_Iostate, std::_Ios_Iostate)
 =================================================================
 
-Begin optimization report for: std::allocator_traits<std::allocator<double>>::deallocate(std::allocator<double>&, double*, unsigned long)
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> std::__str_concat<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::value_type const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::value_type const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type const&)
 =================================================================
 
-Begin optimization report for: std::__new_allocator<double>::deallocate(double*, unsigned long)
+Begin optimization report for: std::char_traits<char>::length(char const*)
 =================================================================
 
-Begin optimization report for: std::vector<double, std::allocator<double>>::_M_fill_assign(unsigned long, double const&)
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::size() const
 =================================================================
 
-Begin optimization report for: std::vector<double, std::allocator<double>>::capacity() const
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator() const
 =================================================================
 
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data::_M_swap_data(std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data&)
+Begin optimization report for: __gnu_cxx::__alloc_traits<std::allocator<char>, char>::_S_select_on_copy(std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string(std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::append(char const*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::allocator_traits<std::allocator<char>>::select_on_container_copy_construction(std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::allocator<char>::allocator(std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__new_allocator<char>::__new_allocator(std::__new_allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_local_data()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Alloc_hider::_Alloc_hider(char*, std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_init_local_buf()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_set_length(unsigned long)
+=================================================================
+
+Begin optimization report for: std::__ptr_traits_ptr_to<char*, char, false>::pointer_to(char&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_length(unsigned long)
+=================================================================
+
+Begin optimization report for: std::char_traits<char>::assign(char&, char const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_check_length(unsigned long, unsigned long, char const*) const
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::max_size() const
+=================================================================
+
+Begin optimization report for: std::allocator_traits<std::allocator<char>>::max_size(std::allocator<char> const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_get_allocator() const
+=================================================================
+
+Begin optimization report for: std::__new_allocator<char>::max_size() const
+=================================================================
+
+Begin optimization report for: std::__new_allocator<char>::_M_max_size() const
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Alloc_hider::_Alloc_hider(char*, std::allocator<char>&&)
 =================================================================
 
 Begin optimization report for: std::vector<double, std::allocator<double>>::size() const
 =================================================================
 
-Begin optimization report for: void std::fill<__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double const&)
+Begin optimization report for: std::vector<double, std::allocator<double>>::_M_default_append(unsigned long)
 
 LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
 LOOP END
-=================================================================
-
-Begin optimization report for: std::vector<double, std::allocator<double>>::begin()
-=================================================================
-
-Begin optimization report for: std::vector<double, std::allocator<double>>::end()
-=================================================================
-
-Begin optimization report for: double* std::__uninitialized_fill_n_a<double*, unsigned long, double, double>(double*, unsigned long, double const&, std::allocator<double>&)
 
 LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
 LOOP END
@@ -232,49 +388,64 @@ LOOP END
 Begin optimization report for: std::vector<double, std::allocator<double>>::_M_erase_at_end(double*)
 =================================================================
 
+Begin optimization report for: std::vector<double, std::allocator<double>>::max_size() const
+=================================================================
+
+Begin optimization report for: double* std::__uninitialized_default_n_a<double*, unsigned long, double>(double*, unsigned long, std::allocator<double>&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator()
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::_M_check_len(unsigned long, char const*) const
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_allocate(unsigned long)
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_deallocate(double*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::_S_relocate(double*, double*, double*, std::allocator<double>&)
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::_S_max_size(std::allocator<double> const&)
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator() const
+=================================================================
+
+Begin optimization report for: std::allocator_traits<std::allocator<double>>::max_size(std::allocator<double> const&)
+=================================================================
+
+Begin optimization report for: unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
+=================================================================
+
+Begin optimization report for: std::__new_allocator<double>::max_size() const
+=================================================================
+
+Begin optimization report for: std::__new_allocator<double>::_M_max_size() const
+=================================================================
+
+Begin optimization report for: double* std::__uninitialized_default_n<double*, unsigned long>(double*, unsigned long)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: double* std::__uninitialized_default_n_1<true>::__uninit_default_n<double*, unsigned long>(double*, unsigned long)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: void std::_Construct<double>(double*)
+=================================================================
+
 Begin optimization report for: double* std::fill_n<double*, unsigned long, double>(double*, unsigned long, double const&)
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-=================================================================
-
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data::_Vector_impl_data()
-=================================================================
-
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data::_M_copy_data(std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data const&)
-=================================================================
-
-Begin optimization report for: void std::__fill_a<__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double const&)
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-=================================================================
-
-Begin optimization report for: void std::__fill_a1<double*, std::vector<double, std::allocator<double>>, double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double const&)
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-=================================================================
-
-Begin optimization report for: __gnu_cxx::__enable_if<__is_scalar<double>::__value, void>::__type std::__fill_a1<double*, double>(double*, double*, double const&)
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-=================================================================
-
-Begin optimization report for: __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>::base() const
-=================================================================
-
-Begin optimization report for: __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>::__normal_iterator(double* const&)
-=================================================================
-
-Begin optimization report for: double* std::uninitialized_fill_n<double*, unsigned long, double>(double*, unsigned long, double const&)
-
-LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
-LOOP END
-=================================================================
-
-Begin optimization report for: double* std::__uninitialized_fill_n<true>::__uninit_fill_n<double*, unsigned long, double>(double*, unsigned long, double const&)
 
 LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
 LOOP END
@@ -298,7 +469,223 @@ LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/s
 LOOP END
 =================================================================
 
+Begin optimization report for: __gnu_cxx::__enable_if<__is_scalar<double>::__value, void>::__type std::__fill_a1<double*, double>(double*, double*, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+=================================================================
+
+Begin optimization report for: std::allocator_traits<std::allocator<double>>::allocate(std::allocator<double>&, unsigned long)
+=================================================================
+
+Begin optimization report for: std::__new_allocator<double>::allocate(unsigned long, void const*)
+=================================================================
+
+Begin optimization report for: std::allocator_traits<std::allocator<double>>::deallocate(std::allocator<double>&, double*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::__new_allocator<double>::deallocate(double*, unsigned long)
+=================================================================
+
+Begin optimization report for: double* std::__relocate_a<double*, double*, std::allocator<double>>(double*, double*, double*, std::allocator<double>&)
+=================================================================
+
+Begin optimization report for: std::enable_if<std::__is_bitwise_relocatable<double>::value, double*>::type std::__relocate_a_1<double, double>(double*, double*, double*, std::allocator<double>&)
+=================================================================
+
+Begin optimization report for: double* std::__niter_base<double*>(double*)
+=================================================================
+
+Begin optimization report for: void std::_Destroy<double*, double>(double*, double*, std::allocator<double>&)
+=================================================================
+
+Begin optimization report for: void std::_Destroy<double*>(double*, double*)
+=================================================================
+
+Begin optimization report for: void std::_Destroy_aux<true>::__destroy<double*>(double*, double*)
+=================================================================
+
+Begin optimization report for: std::char_traits<char>::compare(char const*, char const*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::data() const
+=================================================================
+
+Begin optimization report for: std::basic_ifstream<char, std::char_traits<char>>::~basic_ifstream()
+=================================================================
+
+Begin optimization report for: virtual thunk to std::basic_ifstream<char, std::char_traits<char>>::~basic_ifstream()
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::vector()
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_base()
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl::_Vector_impl()
+=================================================================
+
 Begin optimization report for: std::__new_allocator<double>::__new_allocator()
+=================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, std::_Ios_Openmode)
+=================================================================
+
+Begin optimization report for: double const& std::max<double>(double const&, double const&)
+=================================================================
+
+Begin optimization report for: double const& std::min<double>(double const&, double const&)
+=================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream()
+=================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>::basic_ostream()
+=================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::open(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, std::_Ios_Openmode)
+=================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>::~basic_ostream()
+=================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream()
+=================================================================
+
+Begin optimization report for: virtual thunk to std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream()
+=================================================================
+
+Begin optimization report for: std::chrono::duration<long, std::ratio<1l, 1000000l>> std::chrono::__duration_cast_impl<std::chrono::duration<long, std::ratio<1l, 1000000l>>, std::ratio<1l, 1000l>, long, true, false>::__cast<long, std::ratio<1l, 1000000000l>>(std::chrono::duration<long, std::ratio<1l, 1000000000l>> const&)
+=================================================================
+
+Begin optimization report for: std::chrono::duration<long, std::ratio<1l, 1000000000l>>::count() const
+=================================================================
+
+Begin optimization report for: std::chrono::duration<long, std::ratio<1l, 1000000l>>::duration<long, void>(long const&)
+=================================================================
+
+Begin optimization report for: std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l>>, std::chrono::duration<long, std::ratio<1l, 1000000000l>>>::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l>>(std::chrono::duration<long, std::ratio<1l, 1000000000l>> const&, std::chrono::duration<long, std::ratio<1l, 1000000000l>> const&)
+=================================================================
+
+Begin optimization report for: std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l>>>::time_since_epoch() const
+=================================================================
+
+Begin optimization report for: std::chrono::duration<long, std::ratio<1l, 1000000000l>>::duration<long, void>(long const&)
+=================================================================
+
+Begin optimization report for: std::__new_allocator<char>::__new_allocator()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_dispose()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Alloc_hider::~_Alloc_hider()
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_is_local() const
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_destroy(unsigned long)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_local_data() const
+=================================================================
+
+Begin optimization report for: std::__ptr_traits_ptr_to<char const*, char const, false>::pointer_to(char const&)
+=================================================================
+
+Begin optimization report for: std::allocator_traits<std::allocator<char>>::deallocate(std::allocator<char>&, char*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_get_allocator()
+=================================================================
+
+Begin optimization report for: std::__new_allocator<char>::deallocate(char*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::~_Vector_base()
+=================================================================
+
+Begin optimization report for: std::__new_allocator<double>::~__new_allocator()
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::_M_fill_assign(unsigned long, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::capacity() const
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data::_M_swap_data(std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data&)
+=================================================================
+
+Begin optimization report for: void std::fill<__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::begin()
+=================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::end()
+=================================================================
+
+Begin optimization report for: double* std::__uninitialized_fill_n_a<double*, unsigned long, double, double>(double*, unsigned long, double const&, std::allocator<double>&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data::_Vector_impl_data()
+=================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data::_M_copy_data(std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data const&)
+=================================================================
+
+Begin optimization report for: void std::__fill_a<__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: void std::__fill_a1<double*, std::vector<double, std::allocator<double>>, double>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>::base() const
+=================================================================
+
+Begin optimization report for: __gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double>>>::__normal_iterator(double* const&)
+=================================================================
+
+Begin optimization report for: double* std::uninitialized_fill_n<double*, unsigned long, double>(double*, unsigned long, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
+=================================================================
+
+Begin optimization report for: double* std::__uninitialized_fill_n<true>::__uninit_fill_n<double*, unsigned long, double>(double*, unsigned long, double const&)
+
+LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/stl_algobase.h (930, 7)
+LOOP END
 =================================================================
 
 Begin optimization report for: std::vector<double, std::allocator<double>>::_S_check_init_len(unsigned long, std::allocator<double> const&)
@@ -313,22 +700,7 @@ LOOP BEGIN at /usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/s
 LOOP END
 =================================================================
 
-Begin optimization report for: std::vector<double, std::allocator<double>>::_S_max_size(std::allocator<double> const&)
-=================================================================
-
 Begin optimization report for: std::allocator<double>::allocator(std::allocator<double> const&)
-=================================================================
-
-Begin optimization report for: std::allocator_traits<std::allocator<double>>::max_size(std::allocator<double> const&)
-=================================================================
-
-Begin optimization report for: unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
-=================================================================
-
-Begin optimization report for: std::__new_allocator<double>::max_size() const
-=================================================================
-
-Begin optimization report for: std::__new_allocator<double>::_M_max_size() const
 =================================================================
 
 Begin optimization report for: std::__new_allocator<double>::__new_allocator(std::__new_allocator<double> const&)
@@ -340,15 +712,39 @@ Begin optimization report for: std::_Vector_base<double, std::allocator<double>>
 Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_create_storage(unsigned long)
 =================================================================
 
-Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_allocate(unsigned long)
-=================================================================
-
-Begin optimization report for: std::allocator_traits<std::allocator<double>>::allocate(std::allocator<double>&, unsigned long)
-=================================================================
-
-Begin optimization report for: std::__new_allocator<double>::allocate(unsigned long, void const*)
-=================================================================
-
 Begin optimization report for: double* std::vector<double, std::allocator<double>>::_M_data_ptr<double>(double*) const
+=================================================================
+
+Begin optimization report for: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_construct<char const*>(char const*, char const*, std::forward_iterator_tag)
+=================================================================
+
+Begin optimization report for: std::iterator_traits<char const*>::difference_type std::distance<char const*>(char const*, char const*)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(char*)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_capacity(unsigned long)
+=================================================================
+
+Begin optimization report for: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_construct<char const*>(char const*, char const*, std::forward_iterator_tag)::_Guard::_Guard(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_S_copy_chars(char*, char const*, char const*)
+=================================================================
+
+Begin optimization report for: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_construct<char const*>(char const*, char const*, std::forward_iterator_tag)::_Guard::~_Guard()
+=================================================================
+
+Begin optimization report for: std::iterator_traits<char const*>::difference_type std::__distance<char const*>(char const*, char const*, std::random_access_iterator_tag)
+=================================================================
+
+Begin optimization report for: std::iterator_traits<char const*>::iterator_category std::__iterator_category<char const*>(char const* const&)
+=================================================================
+
+Begin optimization report for: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>::_S_copy(char*, char const*, unsigned long)
+=================================================================
+
+Begin optimization report for: std::char_traits<char>::copy(char*, char const*, unsigned long)
 =================================================================
 

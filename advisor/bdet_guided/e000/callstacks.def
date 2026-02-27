@@ -1,0 +1,16 @@
+# callstacks file version: 8
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi	projection_roi
+         1	        -1	      9600	    0	      0	                                  _start	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	9600	38	0	1	0	0	0	0	0	0	0	0
+         2	        -1	      9636	    0	      0	                                  _start	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	9600	38	0	1	0	0	0	0	0	0	0	0
+         3	        12	    172682	    1	      1	[Loop at line 347 in __libc_start_main_impl]	/lib/x86_64-linux-gnu/libc.so.6	172651,172784	132,64	0	7	0	0	0	0	0	0	0	0
+         4	         3	    172489	    0	      1	                  __libc_start_call_main	/lib/x86_64-linux-gnu/libc.so.6	172368	164	0	9	0	0	0	0	0	0	0	0
+         5	         9	     12116	    1	      0	     [Loop at line 58 in edge::save_pgm]	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	12048	104	12152	4	0	0	0	0	0	0	0	0
+         6	         5	   1405798	    0	      1	           std::ostream::_M_insert<long>	/lib/x86_64-linux-gnu/libstdc++.so.6	1405744	650	0	2	0	0	0	0	0	0	0	0
+         7	         6	   1401023	    0	      1	            std::ostream::sentry::sentry	/lib/x86_64-linux-gnu/libstdc++.so.6	1400992	116	0	3	0	0	0	0	0	0	0	0
+         8	         4	     11856	    0	      0	                                    main	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	11376	1395	0	6	0	0	0	0	0	0	0	0
+         9	         8	     12048	    0	      0	                          edge::save_pgm	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	11856,12390,12611	308,158,5	0	5	0	1	0	0	0	0	0	0
+        10	         8	     12116	    0	      0	                          edge::save_pgm	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	11856,12390,12611	308,158,5	0	5	0	1	0	0	0	0	0	0
+        11	         4	     12116	    0	      0	                                    main	/home/danie/Descargas/proj/img_border_detection/cpp/edge_implicit	11376	1395	0	6	0	0	0	0	0	0	0	0
+        12	         2	    172651	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	172544	334	0	8	0	0	0	0	0	0	0	0
+        13	         2	    172682	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	172544	334	0	8	0	0	0	0	0	0	0	0
+        14	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	11	0	0	0	0	0	0	0	0
