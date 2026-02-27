@@ -1,0 +1,17 @@
+%!TEX root = main.tex
+\section{Background and related work}
+\label{sec:background}
+
+\subsection{Gradient-magnitude edge detection}
+
+An edge is defined as a strong local change in image intensity. For a discrete 2D image, the gradient is approximated by convolving the image with derivative kernels. The Sobel operator uses two 3\(\times\)3 kernels to compute \(G_x\) (horizontal gradient) and \(G_y\) (vertical gradient). The magnitude \(G\) in Eq.~(1) is then a scalar measure of edge strength at each pixel. Convolution is implemented as a double loop over the image with a 3\(\times\)3 neighbourhood; the magnitude step is a single pass over the pixels. Both phases are data-parallel and exhibit regular memory access, which is favourable for SIMD and for compiler auto-vectorization~\cite{simd-survey}.
+
+\subsection{Vectorization strategies}
+
+\textbf{Auto-vectorization:} The compiler (e.g.\ Intel oneAPI \texttt{icpx} or GCC with \texttt{-O3 -march=native}) attempts to map scalar operations to SIMD instructions without source changes. Effectiveness depends on loop structure, alignment, and absence of dependencies that prevent vectorization.
+
+\textbf{Guided (implicit) vectorization:} The programmer adds directives such as \texttt{\#pragma omp simd} to mark loops as vectorisable, helping the compiler and optionally enabling OpenMP SIMD-specific optimisations~\cite{openmp-simd}.
+
+\textbf{Explicit vectorization:} The programmer uses SIMD intrinsics (e.g.\ Intel AVX/AVX2 \texttt{\_mm256\_*} for 256-bit vectors) to implement the kernel by hand~\cite{intel-intrinsics}. This gives full control and can achieve high utilisation when the compiler or guided approach falls short, at the cost of portability and maintainability.
+
+Intel Advisor~\cite{inteladvisor} provides roofline-style analysis, vectorisation advice, and metrics such as vectorisation coverage and loop body efficiency, which we use to interpret the performance of each variant.

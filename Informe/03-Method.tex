@@ -1,0 +1,35 @@
+%!TEX root = main.tex
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Scalar implementation}
+
+We implemented the edge-detection kernel in modern C++ (C++17). The scalar version consists of:
+\begin{enumerate}
+\item Loading a grayscale image (PGM format) into a contiguous buffer of \texttt{double}.
+\item Convolving the image with the Sobel \(G_x\) and \(G_y\) 3\(\times\)3 kernels with same-size output (border pixels are skipped or replicated). Two nested loops over rows and columns compute each output pixel from a 9-tap stencil.
+\item Computing the gradient magnitude \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\) in a single loop over all pixels.
+\end{enumerate}
+No SIMD directives or intrinsics are used; this serves as the baseline for comparison and for Intel Advisor's ``no vectorization'' reference.
+
+\subsection{Auto-vectorized version}
+
+The same source code is compiled with aggressive optimisation and architecture-specific flags: \texttt{-O3 -march=native} (and with Intel oneAPI, \texttt{icpx} is used). No pragmas or intrinsics are added. The compiler is expected to auto-vectorise the convolution and magnitude loops where legal. We refer to this variant as ``auto'' in the results.
+
+\subsection{Guided (implicit) vectorization}
+
+A second variant is built from the same algorithmic structure but with \texttt{\#pragma omp simd} applied to the inner loop of the convolution and to the magnitude loop. The project is linked with OpenMP (\texttt{-fiopenmp} for Intel oneAPI). This guides the compiler to generate SIMD code for those loops and allows Advisor to report on guided vectorisation.
+
+\subsection{Explicit vectorization}
+
+A third variant implements the convolution and magnitude computation using Intel AVX2 intrinsics (\texttt{\_mm256\_*}). Four \texttt{double} values are processed per iteration (256-bit registers). The convolution inner loop is unrolled to compute four consecutive pixels at a time; the remainder is handled with a scalar epilogue. The magnitude step uses \texttt{\_mm256\_loadu\_pd}, \texttt{\_mm256\_mul\_pd}, \texttt{\_mm256\_add\_pd}, and \texttt{\_mm256\_sqrt\_pd}, with a scalar tail. This variant is compiled with \texttt{-O3 -march=native} so that FMA and other instructions are available.
+
+\subsection{Performance analysis with Intel Advisor}
+
+For each variant we:
+\begin{enumerate}
+\item Build the executable with the appropriate flags (scalar: no SIMD; auto: \texttt{-O3 -march=native}; guided: plus \texttt{-fiopenmp}; explicit: \texttt{-O3 -march=native}).
+\item Run the binary under Intel Advisor (Survey and/or Roofline) on a fixed input image and record the execution time reported.
+\item Use Advisor's vectorisation and roofline reports to obtain metrics such as percentage of code vectorised, loop efficiency, and memory vs compute bounds.
+\end{enumerate}
+Input images are PGM grayscale; image size and path are kept consistent across runs so that times and metrics are comparable. \textbf{Placeholder:} The exact Advisor workflow (e.g.\ \texttt{advixe-cl -collect survey}, then \texttt{advixe-cl -report survey}) and command-line options will be filled in once the experiments are run.

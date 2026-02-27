@@ -1,0 +1,95 @@
+% Scientific article: Edge detection kernel vectorization (auto, guided, explicit)
+% Intel Advisor analysis — Jornadas Sarteco style (English)
+
+\documentclass[twocolumn,twoside]{Jornadas}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algcompatible}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{caption}
+\captionsetup{font=footnotesize}
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage{placeins}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+
+\setcounter{topnumber}{10}
+\setcounter{bottomnumber}{10}
+\setcounter{totalnumber}{10}
+\renewcommand{\topfraction}{1}
+\renewcommand{\bottomfraction}{1}
+\renewcommand{\textfraction}{0}
+\renewcommand{\floatpagefraction}{1}
+
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+\lstset{
+     inputencoding=utf8,
+     extendedchars=true,
+     backgroundcolor=\color{gray97},
+     stringstyle=\ttfamily,
+     showstringspaces = false,
+     basicstyle=\scriptsize\ttfamily,
+     commentstyle=\color{gray45},
+     keywordstyle=\bfseries,
+     linewidth=.98\columnwidth,
+     xleftmargin=3mm,
+     breaklines=true,
+     numbers=left,
+     numbersep=6pt,
+     numberstyle=\tiny,
+     breaklines=true,
+}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\graphicspath{{.}{./Figuras/}}
+
+\begin{document}
+
+\title{Performance Analysis of Auto, Guided, and Explicit Vectorization on an Edge-Detection Kernel Using Intel Advisor}
+
+\author{%
+     Author One%
+     \thanks{Department, University, e-mail: {\tt author1@univ.edu}.},
+     Author Two%
+     \thanks{Department, University, e-mail: {\tt author2@univ.edu}.}
+}
+
+\maketitle
+\markboth{}{}
+\pagestyle{empty}
+\thispagestyle{empty}
+
+\begin{abstract}
+Edge detection is a fundamental numerical kernel in computer vision and image processing. This work implements the gradient-magnitude edge detector \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\) in modern C++ in four variants: scalar baseline, compiler auto-vectorization, guided (OpenMP SIMD), and explicit (Intel AVX2) vectorization. We analyse performance and vectorization efficiency with Intel Advisor and report execution times and vectorization percentages. \textbf{[Placeholder: fill with one-sentence summary of main result once data available.]}
+\end{abstract}
+
+\begin{keywords}
+Edge detection, gradient magnitude, Sobel kernel, SIMD, auto-vectorization, OpenMP SIMD, Intel AVX2, Intel Advisor, performance analysis.
+\end{keywords}
+
+\input{01-Intro}
+\input{02-Background}
+\input{03-Method}
+\input{04-Experimental}
+\input{05-Conclusions}
+
+\section*{Acknowledgements}
+
+\textit{To be completed if applicable.}
+
+\nocite{*}
+\bibliographystyle{Jornadas}
+\bibliography{biblio}
+
+\end{document}

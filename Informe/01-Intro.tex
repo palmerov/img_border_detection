@@ -1,0 +1,11 @@
+%!TEX root = main.tex
+\section{Introduction}
+\PARstart{E}{dge} detection is a fundamental operation in computer vision, medical image processing, robotic perception, and as a preprocessing stage for convolutional neural networks. Edges mark sharp changes in intensity that typically correspond to object boundaries, and allow an image to be reduced to structural information: shapes, contours, and regions. From a computational standpoint, edges are characterised by a high gradient magnitude, so standard approaches use operators such as Sobel, Prewitt, or Canny~\cite{canny1986}.
+
+The numerical kernel we focus on is the gradient-magnitude computation: at each pixel \(i\), the edge strength is given by
+\begin{equation}
+G[i] = \sqrt{G_x[i]^2 + G_y[i]^2},
+\end{equation}
+where \(G_x\) and \(G_y\) are the horizontal and vertical gradients obtained by convolving the image with small kernels (e.g.\ Sobel 3\(\times\)3). This kernel is compute-bound and highly regular, making it a good candidate for SIMD vectorization on modern CPUs.
+
+The goal of this work is to compare three vectorization strategies---automatic (compiler-only), guided (directives such as OpenMP SIMD), and explicit (hand-coded SIMD intrinsics)---on a C++ implementation of this kernel, and to analyse their performance and vectorization efficiency using Intel Advisor. We implement a scalar baseline plus the three vectorized versions, run them under Intel Advisor to obtain execution times and vectorization metrics, and present the results in this article. The remainder of the document is organised as follows: Section~\ref{sec:background} reviews the kernel and vectorization concepts; Section~\ref{sec:method} describes the implementation and the Advisor-based methodology; Section~\ref{sec:experimental} reports the results with placeholders for the measured data; Section~\ref{sec:conclusions} summarises the findings and outlines future work.

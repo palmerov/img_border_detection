@@ -1,0 +1,75 @@
+%!TEX root = main.tex
+\section{Experimental results}
+\label{sec:experimental}
+
+Experiments were run on \textbf{[PLACEHOLDER: machine description, e.g. CPU model, number of cores, RAM]}. The input image used for all runs is \textbf{[PLACEHOLDER: image size, e.g. 1024\(\times\)1024 or 4096\(\times\)4096]} pixels. Each configuration was executed multiple times; the values below correspond to \textbf{[PLACEHOLDER: e.g. median of 5 runs / average of 10 runs]}.
+
+\subsection{Execution time}
+
+Table~\ref{tab:time} reports the execution time (in \textbf{[PLACEHOLDER: units, e.g. milliseconds (ms) or microseconds (\(\mu\)s)]}) for the scalar baseline and the three vectorized versions. \textbf{Placeholder values are used; replace with actual measurements.}
+
+\begin{table}[htb]
+\caption{Execution time per variant. \textbf{[REPLACE T1--T4 with measured values.]}}
+\label{tab:time}
+\begin{center}
+{\footnotesize
+\begin{tabular}{lcc}
+\toprule
+Variant   & Time & Unit \\
+\midrule
+Scalar   & T1 & \textbf{[e.g. ms]} \\
+Auto     & T2 & \textbf{[e.g. ms]} \\
+Guided (OpenMP SIMD) & T3 & \textbf{[e.g. ms]} \\
+Explicit (AVX2)      & T4 & \textbf{[e.g. ms]} \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+Summary: execution time for the scalar version is T1; for the auto-vectorized version, T2; for the guided (implicit) version, T3; and for the explicit (AVX2) version, T4. \textbf{[PLACEHOLDER: Once data are available, add one or two sentences comparing T1--T4, e.g. ``The explicit version is the fastest, with a X.X\(\times\) speedup over scalar.''.]}
+
+\subsection{Intel Advisor vectorization metrics}
+
+Intel Advisor was used to collect survey and, where applicable, roofline data for each build. Table~\ref{tab:advisor} summarises the vectorization-related metrics. \textbf{Replace placeholder labels with the actual metrics reported by Advisor (e.g. ``Vectorization \%'', ``Loop body efficiency'', ``Estimated potential gain'').}
+
+\begin{table}[htb]
+\caption{Intel Advisor vectorization metrics. \textbf{[REPLACE P1--P4 and any other columns with real metric names and values.]}}
+\label{tab:advisor}
+\begin{center}
+{\footnotesize
+\begin{tabular}{lcc}
+\toprule
+Variant   & Vectorization percent & \textbf{[Other metric]} \\
+\midrule
+Scalar   & P1 & \textbf{[--]} \\
+Auto     & P2 & \textbf{[--]} \\
+Guided   & P3 & \textbf{[--]} \\
+Explicit & P4 & \textbf{[--]} \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+Vectorization percent for the scalar version is P1 (expected 0\% or N/A); for the auto-vectorized version, P2; for the guided version, P3; and for the explicit version, P4. \textbf{[PLACEHOLDER: Add a short interpretation, e.g. ``Advisor reports that the magnitude loop is fully vectorised in the explicit build, whereas the auto build only vectorises it partially.''.]}
+
+\subsection{Speedup and comparison}
+
+\textbf{[PLACEHOLDER: Fill with computed speedups once T1--T4 are known.]}
+\begin{itemize}
+\item Speedup of auto vs scalar: \textbf{[SPEEDUP\_AUTO = T1/T2]}.
+\item Speedup of guided vs scalar: \textbf{[SPEEDUP\_GUIDED = T1/T3]}.
+\item Speedup of explicit vs scalar: \textbf{[SPEEDUP\_EXPLICIT = T1/T4]}.
+\item Relative improvement of explicit with respect to guided (implicit): \textbf{``...a improvement of X.X of the explicit version with respect to the implicit (guided) version...''} (e.g. 1.2\(\times\) faster, or ``X.X\% reduction in time'').
+\end{itemize}
+
+\textbf{[PLACEHOLDER: If you have roofline or other Advisor figures, add them here and reference as Fig.~\ref{fig:roofline} or similar.]}
+
+%\begin{figure}[htb]
+%\begin{center}
+%  \includegraphics[width=\columnwidth]{roofline_placeholder}
+%\end{center}
+%\caption{Roofline model (Intel Advisor). \textbf{[Replace with actual figure.]}}
+%\label{fig:roofline}
+%\end{figure}
