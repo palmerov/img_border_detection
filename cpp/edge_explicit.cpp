@@ -27,7 +27,6 @@ void edge_detect_explicit(const Image& in, Image& out) {
             __m256d sy = _mm256_setzero_pd();
             const int i0 = (i - 1) * W, i1 = i * W, i2 = (i + 1) * W;
 
-            // --- X direction ---
             __m256d k0 = _mm256_set1_pd(SOBEL_X[0]);
             __m256d k1 = _mm256_set1_pd(SOBEL_X[1]);
             __m256d k2 = _mm256_set1_pd(SOBEL_X[2]);
@@ -54,7 +53,6 @@ void edge_detect_explicit(const Image& in, Image& out) {
             sx = _mm256_add_pd(_mm256_mul_pd(k1, b), sx);
             sx = _mm256_add_pd(_mm256_mul_pd(k2, c), sx);
 
-            // --- Y direction ---
             k0 = _mm256_set1_pd(SOBEL_Y[0]); k1 = _mm256_set1_pd(SOBEL_Y[1]); k2 = _mm256_set1_pd(SOBEL_Y[2]);
             a = _mm256_set_pd(src[i0 + j + 3], src[i0 + j + 2], src[i0 + j + 1], src[i0 + j]);
             b = _mm256_set_pd(src[i0 + j + 4], src[i0 + j + 3], src[i0 + j + 2], src[i0 + j + 1]);

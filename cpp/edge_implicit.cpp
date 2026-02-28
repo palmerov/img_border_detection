@@ -1,7 +1,4 @@
-/**
- * Edge detection: gradient magnitude G = sqrt(Gx^2 + Gy^2) with Sobel.
- * Vectorization: IMPLICIT — OpenMP SIMD pragmas (Intel oneAPI -qopenmp / -fiopenmp).
- */
+// Detección de bordes (Sobel). OpenMP SIMD.
 
 #include "common.h"
 #include <iostream>

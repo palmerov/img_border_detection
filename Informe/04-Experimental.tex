@@ -1,75 +1,108 @@
 %!TEX root = main.tex
-\section{Experimental results}
+\section{Resultados experimentales}
 \label{sec:experimental}
 
-Experiments were run on \textbf{[PLACEHOLDER: machine description, e.g. CPU model, number of cores, RAM]}. The input image used for all runs is \textbf{[PLACEHOLDER: image size, e.g. 1024\(\times\)1024 or 4096\(\times\)4096]} pixels. Each configuration was executed multiple times; the values below correspond to \textbf{[PLACEHOLDER: e.g. median of 5 runs / average of 10 runs]}.
+Los experimentos se ejecutaron en una máquina con \textbf{1 hilo de CPU} y conjunto de instrucciones \textbf{AVX}. La imagen de entrada utilizada en todas las ejecuciones es de \textbf{256\(\times\)256} píxeles (PGM en escala de grises). Los tiempos de la Tabla~\ref{tab:time} se obtuvieron por \textbf{ejecución directa} de cada binario (cronómetro alrededor del kernel, mismo criterio en las cuatro variantes). Adicionalmente, cada variante se ejecutó bajo \textbf{Intel Advisor} (Survey) para obtener las métricas de vectorización y las capturas de la subsección~\ref{sec:advisor-figs}.
 
-\subsection{Execution time}
+\subsection{Imágenes procesadas}
 
-Table~\ref{tab:time} reports the execution time (in \textbf{[PLACEHOLDER: units, e.g. milliseconds (ms) or microseconds (\(\mu\)s)]}) for the scalar baseline and the three vectorized versions. \textbf{Placeholder values are used; replace with actual measurements.}
+La Figura~\ref{fig:processed} muestra la imagen de entrada original y el resultado de la detección de bordes producido por la variante explícita (AVX2). La magnitud del gradiente destaca claramente los contornos principales. Salidas adicionales para las variantes auto, guiada y explícita, así como otras imágenes de prueba (p.ej.\ \texttt{guitar.pgm}, \texttt{bee.pgm}), están disponibles en la carpeta \texttt{img/} del repositorio.
+
+\begin{figure}[htb]
+\begin{center}
+\subfloat[Entrada original (256\(\times\)256)]{\includegraphics[width=0.48\columnwidth]{input}}
+\hfill
+\subfloat[Resultado detección de bordes (AVX2 explícito)]{\includegraphics[width=0.48\columnwidth]{output_explicit}}
+\end{center}
+\caption{Ejemplo: imagen original y salida de detección de bordes (variante explícita).}
+\label{fig:processed}
+\end{figure}
+
+\subsection{Tiempo de ejecución}
+
+La Tabla~\ref{tab:time} recoge el tiempo de ejecución en \textbf{milisegundos (ms)} para la línea base escalar y las tres versiones vectorizadas. Todas las medidas se tomaron por ejecución directa (\texttt{high\_resolution\_clock} alrededor del kernel).
 
 \begin{table}[htb]
-\caption{Execution time per variant. \textbf{[REPLACE T1--T4 with measured values.]}}
+\caption{Tiempo de ejecución por variante (ejecución directa, en ms).}
 \label{tab:time}
 \begin{center}
 {\footnotesize
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \toprule
-Variant   & Time & Unit \\
+Variante   & Tiempo (ms) \\
 \midrule
-Scalar   & T1 & \textbf{[e.g. ms]} \\
-Auto     & T2 & \textbf{[e.g. ms]} \\
-Guided (OpenMP SIMD) & T3 & \textbf{[e.g. ms]} \\
-Explicit (AVX2)      & T4 & \textbf{[e.g. ms]} \\
+Escalar   & 0,52 \\
+Auto     & 0,34 \\
+Guiada (OpenMP SIMD) & 0,27 \\
+Explícita (AVX2)      & 0,24 \\
 \bottomrule
 \end{tabular}
 }
 \end{center}
 \end{table}
 
-Summary: execution time for the scalar version is T1; for the auto-vectorized version, T2; for the guided (implicit) version, T3; and for the explicit (AVX2) version, T4. \textbf{[PLACEHOLDER: Once data are available, add one or two sentences comparing T1--T4, e.g. ``The explicit version is the fastest, with a X.X\(\times\) speedup over scalar.''.]}
+La versión escalar tarda 0,52\,ms; la auto, 0,34\,ms; la guiada, 0,27\,ms; la explícita, 0,24\,ms. Las variantes vectorizadas son más rápidas que la escalar; la explícita (AVX2) es la más rápida y mejora respecto de la guiada.
 
-\subsection{Intel Advisor vectorization metrics}
+\subsection{Métricas de vectorización de Intel Advisor}
 
-Intel Advisor was used to collect survey and, where applicable, roofline data for each build. Table~\ref{tab:advisor} summarises the vectorization-related metrics. \textbf{Replace placeholder labels with the actual metrics reported by Advisor (e.g. ``Vectorization \%'', ``Loop body efficiency'', ``Estimated potential gain'').}
+Se utilizó Intel Advisor para recoger datos de Survey en cada compilación. La Tabla~\ref{tab:advisor} resume las métricas de vectorización según el resumen ``Vectorization and Code Insights'': tiempo de CPU en bucles vectorizados e instrucciones AVX.
 
 \begin{table}[htb]
-\caption{Intel Advisor vectorization metrics. \textbf{[REPLACE P1--P4 and any other columns with real metric names and values.]}}
+\caption{Métricas de vectorización de Intel Advisor (tiempo en código vectorizado).}
 \label{tab:advisor}
 \begin{center}
 {\footnotesize
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \toprule
-Variant   & Vectorization percent & \textbf{[Other metric]} \\
+Variante   & Vectorización (tiempo en bucle vectorizado) \\
 \midrule
-Scalar   & P1 & \textbf{[--]} \\
-Auto     & P2 & \textbf{[--]} \\
-Guided   & P3 & \textbf{[--]} \\
-Explicit & P4 & \textbf{[--]} \\
+Escalar   & 0\% \\
+Auto     & 100\% \\
+Guiada   & 100\% \\
+Explícita & 100\% \\
 \bottomrule
 \end{tabular}
 }
 \end{center}
 \end{table}
 
-Vectorization percent for the scalar version is P1 (expected 0\% or N/A); for the auto-vectorized version, P2; for the guided version, P3; and for the explicit version, P4. \textbf{[PLACEHOLDER: Add a short interpretation, e.g. ``Advisor reports that the magnitude loop is fully vectorised in the explicit build, whereas the auto build only vectorises it partially.''.]}
+Escalar: 0\% en código vectorizado; auto, guiada y explícita: 100\% en un bucle vectorizado (AVX).
 
-\subsection{Speedup and comparison}
+\subsection{Capturas de Intel Advisor}
+\label{sec:advisor-figs}
 
-\textbf{[PLACEHOLDER: Fill with computed speedups once T1--T4 are known.]}
+Las Figuras~\ref{fig:advisor-auto}--\ref{fig:advisor-explicit} muestran el resumen de Advisor para cada variante.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=\columnwidth]{auto_general}
+\end{center}
+\caption{Resumen Intel Advisor: variante auto-vectorizada (\texttt{bdet\_auto}).}
+\label{fig:advisor-auto}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=\columnwidth]{guided_general}
+\end{center}
+\caption{Resumen Intel Advisor: variante guiada (OpenMP SIMD) (\texttt{bdet\_guided}).}
+\label{fig:advisor-guided}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=\columnwidth]{exp_general}
+\end{center}
+\caption{Resumen Intel Advisor: variante explícita (AVX2) (\texttt{bdet\_explicit}).}
+\label{fig:advisor-explicit}
+\end{figure}
+
+\subsection{Aceleración y comparación}
+
 \begin{itemize}
-\item Speedup of auto vs scalar: \textbf{[SPEEDUP\_AUTO = T1/T2]}.
-\item Speedup of guided vs scalar: \textbf{[SPEEDUP\_GUIDED = T1/T3]}.
-\item Speedup of explicit vs scalar: \textbf{[SPEEDUP\_EXPLICIT = T1/T4]}.
-\item Relative improvement of explicit with respect to guided (implicit): \textbf{``...a improvement of X.X of the explicit version with respect to the implicit (guided) version...''} (e.g. 1.2\(\times\) faster, or ``X.X\% reduction in time'').
+\item Tiempos por ejecución directa (ms): escalar 0,52; auto 0,34; guiada 0,27; explícita 0,24.
+\item Aceleración frente a escalar: auto 1,5\(\times\); guiada 1,9\(\times\); explícita 2,2\(\times\).
+\item Mejora de la explícita respecto de la guiada: aproximadamente 1,1\(\times\) (0,27\,ms frente a 0,24\,ms).
 \end{itemize}
 
-\textbf{[PLACEHOLDER: If you have roofline or other Advisor figures, add them here and reference as Fig.~\ref{fig:roofline} or similar.]}
-
-%\begin{figure}[htb]
-%\begin{center}
-%  \includegraphics[width=\columnwidth]{roofline_placeholder}
-%\end{center}
-%\caption{Roofline model (Intel Advisor). \textbf{[Replace with actual figure.]}}
-%\label{fig:roofline}
-%\end{figure}
+Las métricas de Advisor (Tabla~\ref{tab:advisor}) coinciden con las figuras. Las diferencias de tiempo entre auto, guiada y explícita reflejan el mayor control de la guiada y la explícita frente a la auto-vectorización.

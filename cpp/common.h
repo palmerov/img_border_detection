@@ -11,17 +11,15 @@
 
 namespace edge {
 
-// PGM (grayscale) image: row-major, height rows of width pixels.
 struct Image {
     int width{0};
     int height{0};
-    std::vector<double> data;  // grayscale [0,255] as double
+    std::vector<double> data;
 
     double& at(int y, int x) { return data[y * width + x]; }
     const double& at(int y, int x) const { return data[y * width + x]; }
 };
 
-// Load PGM (P2 or P5). Converts to double in [0,255].
 inline Image load_pgm(const std::string& path) {
     std::ifstream f(path, std::ios::binary);
     if (!f) throw std::runtime_error("Cannot open " + path);
@@ -40,7 +38,7 @@ inline Image load_pgm(const std::string& path) {
             img.data[i] = static_cast<double>(v);
         }
     } else {
-        f.get();  // newline after maxval
+        f.get();
         for (int i = 0; i < w * h; ++i) {
             unsigned char v;
             f.read(reinterpret_cast<char*>(&v), 1);
@@ -50,7 +48,6 @@ inline Image load_pgm(const std::string& path) {
     return img;
 }
 
-// Save PGM P2 (ASCII) for portability.
 inline void save_pgm(const std::string& path, const Image& img) {
     std::ofstream f(path);
     if (!f) throw std::runtime_error("Cannot write " + path);
@@ -61,7 +58,6 @@ inline void save_pgm(const std::string& path, const Image& img) {
     }
 }
 
-// Sobel 3x3 kernels (flattened row-major for convenience).
 constexpr double SOBEL_X[9] = { -1, 0, 1, -2, 0, 2, -1, 0, 1 };
 constexpr double SOBEL_Y[9] = { -1, -2, -1, 0, 0, 0, 1, 2, 1 };
 

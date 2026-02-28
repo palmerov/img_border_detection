@@ -1,17 +1,39 @@
 %!TEX root = main.tex
-\section{Background and related work}
+\section{Antecedentes y trabajo relacionado}
 \label{sec:background}
 
-\subsection{Gradient-magnitude edge detection}
+\subsection{Detección de bordes por magnitud del gradiente}
 
-An edge is defined as a strong local change in image intensity. For a discrete 2D image, the gradient is approximated by convolving the image with derivative kernels. The Sobel operator uses two 3\(\times\)3 kernels to compute \(G_x\) (horizontal gradient) and \(G_y\) (vertical gradient). The magnitude \(G\) in Eq.~(1) is then a scalar measure of edge strength at each pixel. Convolution is implemented as a double loop over the image with a 3\(\times\)3 neighbourhood; the magnitude step is a single pass over the pixels. Both phases are data-parallel and exhibit regular memory access, which is favourable for SIMD and for compiler auto-vectorization~\cite{simd-survey}.
+Un borde se define como un cambio local fuerte en la intensidad de la imagen. Para una imagen 2D discreta, el gradiente se aproxima convolucionando la imagen con kernels derivados. El operador de Sobel utiliza dos kernels 3\(\times\)3 para calcular \(G_x\) (gradiente horizontal) y \(G_y\) (gradiente vertical). La magnitud \(G\) en la Ec.~(1) es entonces una medida escalar de la fuerza del borde en cada píxel. La convolución se implementa como un doble bucle sobre la imagen con una ventana 3\(\times\)3; la etapa de magnitud es un único recorrido sobre los píxeles. Ambas fases son paralelas en datos y presentan acceso a memoria regular, lo que favorece la SIMD y la auto-vectorización del compilador~\cite{simd-survey}.
 
-\subsection{Vectorization strategies}
+Los kernels de Sobel para \(G_x\) y \(G_y\) son:
+\[
+K_x = \begin{pmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{pmatrix}, \quad
+K_y = \begin{pmatrix} -1 & -2 & -1 \\ 0 & 0 & 0 \\ 1 & 2 & 1 \end{pmatrix}.
+\]
+El Algoritmo~\ref{alg:sobel-mag} resume el cálculo: convolución con \(K_x\) y \(K_y\) y luego \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\). Ambas fases son paralelas en datos y aptas para SIMD (p.ej.\ cuatro \texttt{double} por instrucción con AVX2).
 
-\textbf{Auto-vectorization:} The compiler (e.g.\ Intel oneAPI \texttt{icpx} or GCC with \texttt{-O3 -march=native}) attempts to map scalar operations to SIMD instructions without source changes. Effectiveness depends on loop structure, alignment, and absence of dependencies that prevent vectorization.
+\begin{algorithm}[htb]
+\caption{Magnitud del gradiente (Sobel)}
+\label{alg:sobel-mag}
+\begin{algorithmic}[1]
+\Require Imagen de entrada \(I\) de tamaño \(H \times W\)
+\Ensure Imagen de magnitud \(G\) (mismo tamaño en píxeles interiores)
+\State Calcular \(G_x \gets I * K_x\) (convolución 3\(\times\)3, borde replicado)
+\State Calcular \(G_y \gets I * K_y\)
+\For{cada píxel \(i\) en el interior de la imagen}
+\State \(G[i] \gets \sqrt{G_x[i]^2 + G_y[i]^2}\)
+\EndFor
+\State \Return \(G\)
+\end{algorithmic}
+\end{algorithm}
 
-\textbf{Guided (implicit) vectorization:} The programmer adds directives such as \texttt{\#pragma omp simd} to mark loops as vectorisable, helping the compiler and optionally enabling OpenMP SIMD-specific optimisations~\cite{openmp-simd}.
+\subsection{Estrategias de vectorización}
 
-\textbf{Explicit vectorization:} The programmer uses SIMD intrinsics (e.g.\ Intel AVX/AVX2 \texttt{\_mm256\_*} for 256-bit vectors) to implement the kernel by hand~\cite{intel-intrinsics}. This gives full control and can achieve high utilisation when the compiler or guided approach falls short, at the cost of portability and maintainability.
+\textbf{Vectorización automática:} El compilador (p.ej.\ Intel oneAPI \texttt{icpx} o GCC con \texttt{-O3 -march=native}) intenta mapear operaciones escalares a instrucciones SIMD sin modificar el código fuente. La efectividad depende de la estructura del bucle, la alineación y la ausencia de dependencias que impidan la vectorización.
 
-Intel Advisor~\cite{inteladvisor} provides roofline-style analysis, vectorisation advice, and metrics such as vectorisation coverage and loop body efficiency, which we use to interpret the performance of each variant.
+\textbf{Vectorización guiada (implícita):} El programador añade directivas como \texttt{\#pragma omp simd} para marcar bucles como vectorizables, ayudando al compilador y permitiendo optimizaciones específicas de OpenMP SIMD~\cite{openmp-simd}.
+
+\textbf{Vectorización explícita:} El programador utiliza intrinsics SIMD (p.ej.\ Intel AVX/AVX2 \texttt{\_mm256\_*} para vectores de 256 bits) para implementar el kernel a mano~\cite{intel-intrinsics}. Esto da control total y puede alcanzar una utilización alta cuando el compilador o el enfoque guiado no lo logran, a costa de portabilidad y mantenibilidad.
+
+Intel Advisor~\cite{inteladvisor} proporciona análisis tipo roofline, asesoramiento sobre vectorización y métricas como cobertura de vectorización y eficiencia del cuerpo del bucle, que utilizamos para interpretar el rendimiento de cada variante.

@@ -8,6 +8,16 @@ if(DEFINED ENV{ONEAPI_ROOT})
   set(CMAKE_CXX_COMPILER "icpx" CACHE STRING "Intel oneAPI C++ compiler")
 endif()
 
+# Scalar: no vectorization (baseline for timing)
+add_executable(edge_scalar edge_scalar.cpp)
+target_include_directories(edge_scalar PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_options(edge_scalar PRIVATE -O2
+  $<$<CXX_COMPILER_ID:GNU>:-fno-tree-vectorize>
+  $<$<CXX_COMPILER_ID:Clang>:-fno-vectorize>
+  $<$<CXX_COMPILER_ID:IntelLLVM>:-fno-vectorize>
+  $<$<CXX_COMPILER_ID:Intel>:-no-vec>
+)
+
 # Auto vectorization: rely on compiler -O3 -march=native
 add_executable(edge_auto edge_auto.cpp)
 target_include_directories(edge_auto PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

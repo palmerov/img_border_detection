@@ -1,9 +1,11 @@
-% Scientific article: Edge detection kernel vectorization (auto, guided, explicit)
-% Intel Advisor analysis — Jornadas Sarteco style (English)
+% Artículo científico: vectorización del kernel de detección de bordes (auto, guiado, explícito)
+% Análisis con Intel Advisor — Estilo Jornadas Sarteco (español)
 
 \documentclass[twocolumn,twoside]{Jornadas}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage[spanish]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath}
 \usepackage{listings}
 \usepackage{algorithm}
 \usepackage{algorithmicx}
@@ -18,6 +20,8 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
+
+\floatname{algorithm}{Algoritmo}
 
 \setcounter{topnumber}{10}
 \setcounter{bottomnumber}{10}
@@ -56,13 +60,13 @@
 
 \begin{document}
 
-\title{Performance Analysis of Auto, Guided, and Explicit Vectorization on an Edge-Detection Kernel Using Intel Advisor}
+\title{Análisis de rendimiento de la vectorización automática, guiada y explícita en un kernel de detección de bordes mediante Intel Advisor}
 
 \author{%
-     Author One%
-     \thanks{Department, University, e-mail: {\tt author1@univ.edu}.},
-     Author Two%
-     \thanks{Department, University, e-mail: {\tt author2@univ.edu}.}
+     Juan Pablo Palmero Valdés%
+     \thanks{Lic. en Ciencias de la Computación. Benemérita Universidad Autónoma de Puebla. E-mail: {\tt palmerovaldes99@gmail.com}.},
+     Mario Rossainz López%
+     \thanks{Doctor en Ciencias de la Computación. Benemérita Universidad Autónoma de Puebla. E-mail: {\tt mario.rossainz@correo.buap.mx}.}
 }
 
 \maketitle
@@ -71,11 +75,11 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-Edge detection is a fundamental numerical kernel in computer vision and image processing. This work implements the gradient-magnitude edge detector \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\) in modern C++ in four variants: scalar baseline, compiler auto-vectorization, guided (OpenMP SIMD), and explicit (Intel AVX2) vectorization. We analyse performance and vectorization efficiency with Intel Advisor and report execution times and vectorization percentages. \textbf{[Placeholder: fill with one-sentence summary of main result once data available.]}
+La detección de bordes es un kernel numérico fundamental en visión por computador y procesamiento de imágenes. En este trabajo se implementa el detector de bordes por magnitud del gradiente \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\) en C++ moderno en cuatro variantes: línea base escalar, vectorización automática del compilador, vectorización guiada (OpenMP SIMD) y vectorización explícita (Intel AVX2). Se analiza el rendimiento y la eficiencia de vectorización con Intel Advisor, reportando tiempos de ejecución y porcentajes de vectorización. Las tres variantes vectorizadas (auto, guiada y explícita) alcanzan 100\% de tiempo en bucle vectorizado según Intel Advisor; la explícita (AVX2) es la más rápida en ejecución directa (aprox. 2,2\(\times\) frente a la escalar) y la guiada la sigue.
 \end{abstract}
 
 \begin{keywords}
-Edge detection, gradient magnitude, Sobel kernel, SIMD, auto-vectorization, OpenMP SIMD, Intel AVX2, Intel Advisor, performance analysis.
+Detección de bordes, magnitud del gradiente, kernel Sobel, SIMD, vectorización automática, OpenMP SIMD, Intel AVX2, Intel Advisor, análisis de rendimiento.
 \end{keywords}
 
 \input{01-Intro}
@@ -84,9 +88,9 @@ Edge detection, gradient magnitude, Sobel kernel, SIMD, auto-vectorization, Open
 \input{04-Experimental}
 \input{05-Conclusions}
 
-\section*{Acknowledgements}
+\section*{Agradecimientos}
 
-\textit{To be completed if applicable.}
+Agradecemos a la Benemérita Universidad Autónoma de Puebla (BUAP) y al CONACYT por el apoyo institucional. Asimismo, nuestro agradecimiento a los profesores de la Facultad de Ciencias de la Computación de la BUAP por su orientación y apoyo durante la realización de este trabajo.
 
 \nocite{*}
 \bibliographystyle{Jornadas}

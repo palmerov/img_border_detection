@@ -1,7 +1,4 @@
-/**
- * Edge detection: gradient magnitude G = sqrt(Gx^2 + Gy^2) with Sobel.
- * Vectorization: AUTO — compiler auto-vectorization only (-O3 -march=native).
- */
+// Detección de bordes (Sobel). Auto-vectorización del compilador.
 
 #include "common.h"
 #include <iostream>
@@ -14,8 +11,6 @@ void edge_detect_auto(const Image& in, Image& out) {
     out.width = W;
     out.height = H;
     out.data.assign(W * H, 0.0);
-
-    // Convolve with Sobel X and Y (same-size output, border replication).
     std::vector<double> gx(W * H, 0.0), gy(W * H, 0.0);
 
     for (int i = 1; i < H - 1; ++i) {

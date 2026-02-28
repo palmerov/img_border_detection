@@ -1,41 +1,62 @@
 \relax 
 \providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
 \@nameuse{bbl@beforestart}
+\catcode `"\active 
+\catcode `<\active 
+\catcode `>\active 
+\@nameuse{es@quoting}
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{canny1986}
 \citation{simd-survey}
+\providecommand \oddpage@label [2]{}
+\babel@aux{spanish}{}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introducción}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Antecedentes y trabajo relacionado}{1}{section.2}\protected@file@percent }
+\newlabel{sec:background}{{II}{1}{Antecedentes y trabajo relacionado}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-A}Detección de bordes por magnitud del gradiente}{1}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-B}Estrategias de vectorización}{1}{subsection.2.2}\protected@file@percent }
 \citation{openmp-simd}
 \citation{intel-intrinsics}
 \citation{inteladvisor}
-\providecommand \oddpage@label [2]{}
-\babel@aux{english}{}
-\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {II}Background and related work}{1}{section.2}\protected@file@percent }
-\newlabel{sec:background}{{II}{1}{Background and related work}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {II-A}Gradient-magnitude edge detection}{1}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {II-B}Vectorization strategies}{1}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{1}{section.3}\protected@file@percent }
-\newlabel{sec:method}{{III}{1}{Methodology}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-A}Scalar implementation}{1}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-B}Auto-vectorized version}{2}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-C}Guided (implicit) vectorization}{2}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-D}Explicit vectorization}{2}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {III-E}Performance analysis with Intel Advisor}{2}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental results}{2}{section.4}\protected@file@percent }
-\newlabel{sec:experimental}{{IV}{2}{Experimental results}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Execution time}{2}{subsection.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Execution time per variant. \textbf  {[REPLACE T1--T4 with measured values.]}}}{2}{table.caption.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Magnitud del gradiente (Sobel)}}{2}{algorithm.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:time}{{I}{2}{Execution time per variant. \textbf {[REPLACE T1--T4 with measured values.]}}{table.caption.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Intel Advisor vectorization metrics}{2}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Intel Advisor vectorization metrics. \textbf  {[REPLACE P1--P4 and any other columns with real metric names and values.]}}}{2}{table.caption.2}\protected@file@percent }
-\newlabel{tab:advisor}{{II}{2}{Intel Advisor vectorization metrics. \textbf {[REPLACE P1--P4 and any other columns with real metric names and values.]}}{table.caption.2}{}}
+\newlabel{alg:sobel-mag}{{1}{2}{Magnitud del gradiente (Sobel)}{algorithm.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Metodología}{2}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{III}{2}{Metodología}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-A}Implementación escalar}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Bucle escalar: convolución y magnitud}}{2}{algorithm.2}\protected@file@percent }
+\newlabel{alg:scalar-loop}{{2}{2}{Bucle escalar: convolución y magnitud}{algorithm.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-B}Versión auto-vectorizada}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-C}Vectorización guiada (implícita)}{2}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-D}Vectorización explícita}{2}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-E}Análisis de rendimiento con Intel Advisor}{2}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Resultados experimentales}{3}{section.4}\protected@file@percent }
+\newlabel{sec:experimental}{{IV}{3}{Resultados experimentales}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Imágenes procesadas}{3}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Ejemplo: imagen original y salida de detección de bordes (variante explícita).}}{3}{figure.caption.1}\protected@file@percent }
+\newlabel{fig:processed}{{1}{3}{Ejemplo: imagen original y salida de detección de bordes (variante explícita)}{figure.caption.1}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Entrada original (256\(\times \)256)}}}{3}{subfigure.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Resultado detección de bordes (AVX2 explícito)}}}{3}{subfigure.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Tiempo de ejecución}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Tiempo de ejecución por variante (ejecución directa, en ms).}}{3}{table.caption.2}\protected@file@percent }
+\newlabel{tab:time}{{I}{3}{Tiempo de ejecución por variante (ejecución directa, en ms)}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Métricas de vectorización de Intel Advisor}{3}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Métricas de vectorización de Intel Advisor (tiempo en código vectorizado).}}{3}{table.caption.3}\protected@file@percent }
+\newlabel{tab:advisor}{{II}{3}{Métricas de vectorización de Intel Advisor (tiempo en código vectorizado)}{table.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-D}Capturas de Intel Advisor}{3}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:advisor-figs}{{IV-D}{3}{Capturas de Intel Advisor}{subsection.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Resumen Intel Advisor: variante auto-vectorizada (\texttt  {bdet\_auto}).}}{3}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:advisor-auto}{{2}{3}{Resumen Intel Advisor: variante auto-vectorizada (\texttt {bdet\_auto})}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Resumen Intel Advisor: variante guiada (OpenMP SIMD) (\texttt  {bdet\_guided}).}}{3}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:advisor-guided}{{3}{3}{Resumen Intel Advisor: variante guiada (OpenMP SIMD) (\texttt {bdet\_guided})}{figure.caption.5}{}}
 \citation{*}
 \bibstyle{Jornadas}
 \bibdata{biblio}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Speedup and comparison}{3}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusions}{3}{section.5}\protected@file@percent }
-\newlabel{sec:conclusions}{{V}{3}{Conclusions}{section.5}{}}
-\gdef \@abspage@last{3}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Resumen Intel Advisor: variante explícita (AVX2) (\texttt  {bdet\_explicit}).}}{4}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:advisor-explicit}{{4}{4}{Resumen Intel Advisor: variante explícita (AVX2) (\texttt {bdet\_explicit})}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-E}Aceleración y comparación}{4}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusiones}{4}{section.5}\protected@file@percent }
+\newlabel{sec:conclusions}{{V}{4}{Conclusiones}{section.5}{}}
+\gdef \@abspage@last{4}

@@ -1,35 +1,57 @@
 %!TEX root = main.tex
-\section{Methodology}
+\section{Metodología}
 \label{sec:method}
 
-\subsection{Scalar implementation}
+\subsection{Implementación escalar}
 
-We implemented the edge-detection kernel in modern C++ (C++17). The scalar version consists of:
+Implementamos el kernel de detección de bordes en C++ moderno (C++17). La versión escalar consta de:
 \begin{enumerate}
-\item Loading a grayscale image (PGM format) into a contiguous buffer of \texttt{double}.
-\item Convolving the image with the Sobel \(G_x\) and \(G_y\) 3\(\times\)3 kernels with same-size output (border pixels are skipped or replicated). Two nested loops over rows and columns compute each output pixel from a 9-tap stencil.
-\item Computing the gradient magnitude \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\) in a single loop over all pixels.
+\item Carga de una imagen en escala de grises (formato PGM) en un buffer contiguo de \texttt{double}.
+\item Convolución de la imagen con los kernels de Sobel \(G_x\) y \(G_y\) 3\(\times\)3 con salida de mismo tamaño (los píxeles de borde se omiten o replican). Dos bucles anidados sobre filas y columnas calculan cada píxel de salida con una ventana 3\(\times\)3 (esténcil de 9 puntos).
+\item Cálculo de la magnitud del gradiente \(G[i] = \sqrt{G_x[i]^2 + G_y[i]^2}\) en un único bucle sobre todos los píxeles.
 \end{enumerate}
-No SIMD directives or intrinsics are used; this serves as the baseline for comparison and for Intel Advisor's ``no vectorization'' reference.
+No se usan directivas SIMD ni intrinsics; sirve como línea base y como referencia de ``sin vectorización'' para Intel Advisor.
 
-\subsection{Auto-vectorized version}
+El Algoritmo~\ref{alg:scalar-loop} detalla el bucle principal de la convolución (un píxel por iteración) y el bucle de magnitud. En la variante escalar ambos bucles son puramente escalares; en las variantes guiada y explícita estos mismos bucles son el objetivo de la vectorización.
 
-The same source code is compiled with aggressive optimisation and architecture-specific flags: \texttt{-O3 -march=native} (and with Intel oneAPI, \texttt{icpx} is used). No pragmas or intrinsics are added. The compiler is expected to auto-vectorise the convolution and magnitude loops where legal. We refer to this variant as ``auto'' in the results.
+\begin{algorithm}[htb]
+\caption{Bucle escalar: convolución y magnitud}
+\label{alg:scalar-loop}
+\begin{algorithmic}[1]
+\Require Imagen \(I\), kernels \(K_x\), \(K_y\) 3\(\times\)3; dimensiones \(H\), \(W\)
+\Ensure Imagen de bordes \(G\)
+\State Inicializar \(G_x\), \(G_y\) del tamaño de \(I\)
+\For{\(y \gets 1\) \textbf{to} \(H-2\)}
+\For{\(x \gets 1\) \textbf{to} \(W-2\)}
+\State \(gx \gets 0\); \(gy \gets 0\)
+\For{\(dy \gets -1\) \textbf{to} \(1\)}
+\For{\(dx \gets -1\) \textbf{to} \(1\)}
+\State \(gx \gets gx + I[y+dy,x+dx] \cdot K_x[dy+1,dx+1]\)
+\State \(gy \gets gy + I[y+dy,x+dx] \cdot K_y[dy+1,dx+1]\)
+\EndFor
+\EndFor
+\State \(G_x[y,x] \gets gx\); \(G_y[y,x] \gets gy\)
+\EndFor
+\EndFor
+\For{cada píxel \(i\) en el interior}
+\State \(G[i] \gets \sqrt{G_x[i]^2 + G_y[i]^2}\)
+\EndFor
+\State \Return \(G\)
+\end{algorithmic}
+\end{algorithm}
 
-\subsection{Guided (implicit) vectorization}
+\subsection{Versión auto-vectorizada}
 
-A second variant is built from the same algorithmic structure but with \texttt{\#pragma omp simd} applied to the inner loop of the convolution and to the magnitude loop. The project is linked with OpenMP (\texttt{-fiopenmp} for Intel oneAPI). This guides the compiler to generate SIMD code for those loops and allows Advisor to report on guided vectorisation.
+El mismo código fuente se compila con optimización agresiva y flags específicos de arquitectura: \texttt{-O3 -march=native} (con Intel oneAPI se usa \texttt{icpx}). No se añaden pragmas ni intrinsics. Se espera que el compilador auto-vectorice los bucles de convolución y magnitud cuando sea legal. Esta variante se denomina ``auto'' en los resultados.
 
-\subsection{Explicit vectorization}
+\subsection{Vectorización guiada (implícita)}
 
-A third variant implements the convolution and magnitude computation using Intel AVX2 intrinsics (\texttt{\_mm256\_*}). Four \texttt{double} values are processed per iteration (256-bit registers). The convolution inner loop is unrolled to compute four consecutive pixels at a time; the remainder is handled with a scalar epilogue. The magnitude step uses \texttt{\_mm256\_loadu\_pd}, \texttt{\_mm256\_mul\_pd}, \texttt{\_mm256\_add\_pd}, and \texttt{\_mm256\_sqrt\_pd}, with a scalar tail. This variant is compiled with \texttt{-O3 -march=native} so that FMA and other instructions are available.
+Una segunda variante se construye con la misma estructura algorítmica pero con \texttt{\#pragma omp simd} aplicado al bucle interno de la convolución y al bucle de magnitud. El proyecto se enlaza con OpenMP (\texttt{-fiopenmp} en Intel oneAPI). Así se guía al compilador para generar código SIMD en esos bucles y Advisor puede reportar la vectorización guiada.
 
-\subsection{Performance analysis with Intel Advisor}
+\subsection{Vectorización explícita}
 
-For each variant we:
-\begin{enumerate}
-\item Build the executable with the appropriate flags (scalar: no SIMD; auto: \texttt{-O3 -march=native}; guided: plus \texttt{-fiopenmp}; explicit: \texttt{-O3 -march=native}).
-\item Run the binary under Intel Advisor (Survey and/or Roofline) on a fixed input image and record the execution time reported.
-\item Use Advisor's vectorisation and roofline reports to obtain metrics such as percentage of code vectorised, loop efficiency, and memory vs compute bounds.
-\end{enumerate}
-Input images are PGM grayscale; image size and path are kept consistent across runs so that times and metrics are comparable. \textbf{Placeholder:} The exact Advisor workflow (e.g.\ \texttt{advixe-cl -collect survey}, then \texttt{advixe-cl -report survey}) and command-line options will be filled in once the experiments are run.
+Una tercera variante implementa la convolución y el cómputo de la magnitud usando intrinsics Intel AVX2 (\texttt{\_mm256\_*}). Se procesan cuatro valores \texttt{double} por iteración (registros de 256 bits). El bucle interno de la convolución se desenrolla para calcular cuatro píxeles consecutivos cada vez; el resto se trata con un epílogo escalar. La etapa de magnitud usa \texttt{\_mm256\_loadu\_pd}, \texttt{\_mm256\_mul\_pd}, \texttt{\_mm256\_add\_pd} y \texttt{\_mm256\_sqrt\_pd}, con cola escalar. Esta variante se compila con \texttt{-O3 -march=native} para disponer de FMA y otras instrucciones.
+
+\subsection{Análisis de rendimiento con Intel Advisor}
+
+La compilación se realiza con \texttt{icpx} y los parámetros necesarios en cada caso: escalar sin auto-vectorización; auto con \texttt{-O3 -march=native}; guiada con \texttt{-O3 -march=native -fiopenmp}; explícita con \texttt{-O3 -march=native}. Para cada variante se ejecutó el binario bajo Intel Advisor (Survey) sobre una imagen de entrada fija y se utilizaron los informes de vectorización para obtener métricas como porcentaje de código vectorizado y eficiencia del bucle. Las imágenes de entrada son PGM en escala de grises; el tamaño y la ruta se mantienen fijos en todas las ejecuciones para que tiempos y métricas sean comparables.
